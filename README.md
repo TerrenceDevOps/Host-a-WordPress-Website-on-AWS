@@ -3,7 +3,7 @@
 This repository contains the resources and scripts used to deploy a WordPress website on Amazon Web Services (AWS). The project leverages various AWS services to ensure high availability, scalability, and security for the WordPress application.
 
 ## Architecture Overview
-
+![Alt text](/2._Host_a_WordPress_Website_on_AWS.png)
 The WordPress website is hosted on EC2 instances within a highly available and secure architecture that includes:
 
 - A Virtual Private Cloud (VPC) with public and private subnets across two Availability Zones (AZs) for fault tolerance and high availability.
