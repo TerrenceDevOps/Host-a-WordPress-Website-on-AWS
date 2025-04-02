@@ -1,0 +1,45 @@
+we are using vpc appload route 53 to deploy a wordpress site and learning about  other core services
+ 
+to complet our project we start by building our own custom vpc  using a vpc architecture
+we build a three tier vpc archite infrasture is divided into three tiers  on  first tier we have 
+public subnets we hold nat gate load balancer and bastion host
+second private subnets and which hold web servers
+third private for the database
+duplicate the subnets across two availability zones for high availability and fault tolerance tolerance
+
+you can only attach one IG gate way to one vpc
+by default the private subnets are already private
+by default when createing the vpc it has a default route. when creating subnet within a vpc it will associate the subnet to a main route table by default
+it is private as it's targeting the local. it does not want the subnets to be public 
+it does not have a route to the internet
+
+by default the resources on the private subnets are private we need a nat gateway. we want to download the packages. we want to have access to the internet but the outside users to not have internet access
+ 
+sec groups regulate traffic within our vpc
+
+data base sec group  for the rds instance reciev security from port 3306
+if traffic is coming from the app server security group
+
+EFS security group we attach this to the elastic filesystem will allow traffic from port 2049 only if the traffic is coming fom app server sec and and elastic file system and also recieve traffic on port 22 only if traffic is coming form eice
+
+EFS allow webservers to access the app code from the same storage
+if I was using an ebs storage any change one instance would not be replicated in otheor
+we store our app code on the efs so that theweb servers can access code at the same time, this way any changes made to the app code is reflected on both instances
+an ebs storage can only be attached to one ec2 instance 
+
+Before we create an rds instance we need to first create subnet details
+TerrenceZ1!
+
+listener will route traffic traffic to the target group
+
+every app has documantation on how to install and configure it on the server
+
+thhere are preriquites on like php,my sql
+https://docs.aws.amazon.com/linux/al2/ug/hosting-wordpress.html#hosting-wordpress-prereqs
+https://wordpress.org/about/requirements/
+
+
+
+
+
+
